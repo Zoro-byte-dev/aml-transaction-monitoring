@@ -1,5 +1,13 @@
 # AML Transaction Analytics Pipeline
 
+## The question
+
+Can behavioural patterns in transaction data flag money laundering, and what would a standard short-window monitoring rule miss?
+
+**Short answer so far:** a lot. 81% of laundering cases happen when the sender had no external activity in the previous hour, so 60-minute rules can't see them. In those quiet moments, accounts launder at 11x the rate of lightly active ones. That changes where detection effort should go: longer windows and account-history features, not just busier rules.
+
+![Laundering rate by prior-hour activity](docs/laundering_by_activity.png)
+
 A PostgreSQL pipeline that turns 5.08 million synthetic bank transactions
 (IBM AML dataset, HI-Small) into 22 validated, point-in-time behavioural
 features for anti-money-laundering transaction monitoring.
